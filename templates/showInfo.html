@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用户信息表</title>
+</head>
+
+<table border="2px" cellpadding="1px" bordercolor="green" width="200px" style{"border=1px"}  >
+<tr><td>  id  </td><td>  name  </td><td>  删除  </td><td>  修改  </td></tr>
+
+<{foreach from=$arr->res_array item=ele1}>
+	
+	<tr cellpadding="0px">
+
+		<td> <{$ele1.id}> </td>
+	<td> <{$ele1.name}> </td>
+
+	<td><a href='manController_dml.php?code=3&id=<{$ele1.id}>&name=<{$ele1.name}>'>删除</a></td><td><a href='manController_modUI.php?id=<{$ele1.id}>&name=<{$ele1.name}>'>更改信息</a></td>
+	</tr>
+<{/foreach}>
+</table>
+<{$arr->navigate}>
+
+<a href='#'>返回主界面</a>
+<{if $err_code == 1}>
+输入的页数超过总页数
+<{/if}>
+
+</html>
